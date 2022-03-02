@@ -22,6 +22,9 @@ public class cheese : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         food.SetActive(false);//diables the object
-        player.damage(intencity);
+        if(isGood)
+            player.damage(intencity * -1);
+        else
+            player.damage(intencity);
     }
 }

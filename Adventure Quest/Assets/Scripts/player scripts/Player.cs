@@ -21,6 +21,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //these statments make the health degridations slower
+        //to make it easier on the player
+        if (currHealth < 50)
+            maxTime = 1.5f;
+        else if (currHealth < 25)
+            maxTime = 2f;
+        maxTime = 1f;
+
+
         time += Time.deltaTime;
         if(time >= maxTime)
         {
