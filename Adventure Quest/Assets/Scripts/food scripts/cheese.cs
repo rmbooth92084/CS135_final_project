@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class cheese : MonoBehaviour
 {
-    public GameObject player;
+    public Player player;
     public bool isGood; //determins if it's good or bad food
     public int intencity; // how strong the food is
     public GameObject food; //a handle on itself
@@ -22,5 +22,6 @@ public class cheese : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         food.SetActive(false);//diables the object
+        player.damage(intencity);
     }
 }
