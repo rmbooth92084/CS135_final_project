@@ -11,16 +11,23 @@ public class Player : MonoBehaviour
 
     private float time = 0f;
     private float maxTime = 1f;
+
+    public float jumpForce = 10f;
+    private Rigidbody rb;
+    public bool jump = false;
     // Start is called before the first frame update
     void Start()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        OVRInput.Update();
+        OVRInput.FixedUpdate();
         //these statments make the health degridations slower
         //to make it easier on the player
         if (currHealth < 50)
@@ -36,9 +43,10 @@ public class Player : MonoBehaviour
             time = 0f;
             damage(1);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (OVRInput.Get(OVRInput.Button.One))
         {
-            damage(20);
+            rb.AddForce(Vector3.up * jumpForce);
+            jump = true;
         }
 
     }
