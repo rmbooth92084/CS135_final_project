@@ -10,7 +10,7 @@ public class MazeHint : MonoBehaviour {
     private UnityEngine.UI.Text hint_text;
     private float distance_to_goal;
     
-    public bool in_bounds;
+    private bool in_bounds;
 
     void Start() {
         hint_text = this.GetComponent<UnityEngine.UI.Text>();
@@ -44,5 +44,9 @@ public class MazeHint : MonoBehaviour {
                 hint_text.color = Color.red;
             }
         }
+    }
+
+    public void set_bounds(bool x) {
+        in_bounds = x;
     }
 }
