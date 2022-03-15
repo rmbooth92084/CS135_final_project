@@ -208,6 +208,10 @@ public class OVRPlayerController : MonoBehaviour
 
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Space))
+        {
+			Jump();
+        }
 		if (!playerControllerEnabled)
 		{
 			if (OVRManager.OVRManagerinitialized)
