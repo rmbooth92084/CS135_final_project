@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public int currHealth;
 
     public HealthBar healthBar;
+    public bool finish = false;
+    public Vector3 startPos;
 
     private float time = 0f;
     private float maxTime = 1f;
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        startPos = this.transform.position;
     }
 
     // Update is called once per frame
@@ -36,9 +39,17 @@ public class Player : MonoBehaviour
             time = 0f;
             damage(1);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(currHealth <= 0)
         {
-            damage(20);
+            this.transform.position = startPos;
+            currHealth = 100;
+        }
+        if (finish)
+        {
+            this.transform.position = startPos;
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + 25f, this.transform.position.z);
+            currHealth = 100;
+            finish = false;
         }
 
     }
