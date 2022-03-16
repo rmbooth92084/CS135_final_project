@@ -328,7 +328,11 @@ public class OVRPlayerController : MonoBehaviour
 	{
 		if (HaltUpdateMovement)
 			return;
-
+		//should enable jumping
+		if (OVRInput.Get(OVRInput.Button.One))
+        {
+			Jump();
+		}
 		if (EnableLinearMovement)
 		{
 			bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
