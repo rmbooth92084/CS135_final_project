@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     private float time = 0f;
     private float maxTime = 1f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         currHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
