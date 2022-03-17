@@ -208,10 +208,26 @@ public class OVRPlayerController : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.V))
         {
 			Jump();
         }
+		if (Input.GetKeyDown(KeyCode.W))
+		{
+			this.transform.position += Vector3.forward * Time.deltaTime;
+		}
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			this.transform.position += Vector3.left * Time.deltaTime;
+		}
+		if (Input.GetKeyDown(KeyCode.S))
+		{
+			this.transform.position += Vector3.right * Time.deltaTime;
+		}
+		if (Input.GetKeyDown(KeyCode.D))
+		{
+			this.transform.position += Vector3.back * Time.deltaTime;
+		}
 		if (!playerControllerEnabled)
 		{
 			if (OVRManager.OVRManagerinitialized)
